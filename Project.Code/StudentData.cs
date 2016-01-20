@@ -1,6 +1,4 @@
-﻿
-
-namespace Project.Code.StudentData
+﻿namespace Project.Code.StudentData
 {
     internal class Student : AbstractPerson.Person
     {

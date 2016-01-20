@@ -1,6 +1,4 @@
-﻿
-
-namespace Project.Code.Operations
+﻿namespace Project.Code.Operations
 {
     public static class Operations
     {

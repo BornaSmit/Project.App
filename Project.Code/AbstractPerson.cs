@@ -1,6 +1,4 @@
-﻿
-
-namespace Project.Code.AbstractPerson
+﻿namespace Project.Code.AbstractPerson
 {
     internal abstract class Person
     {

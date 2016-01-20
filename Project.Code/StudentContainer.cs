@@ -5,8 +5,7 @@ using Project.Code.IdGenerator;
 
 namespace Project.Code
 {
-
-    public class StudentContainer
+     public class StudentContainer
     {
         static List<Student> studentList;
         public static void InitializeList()

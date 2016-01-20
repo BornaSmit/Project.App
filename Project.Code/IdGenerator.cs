@@ -1,6 +1,4 @@
-﻿
-
-namespace Project.Code.IdGenerator
+﻿namespace Project.Code.IdGenerator
 {
     public sealed class CreateStudentIdGenerator
     {
