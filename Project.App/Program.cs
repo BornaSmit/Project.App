@@ -1,12 +1,11 @@
 ﻿using System;
 using Project.Code;
-using Project.Code.DataValidiation;
 
 class Program
 {
     static void Main()
     {
-        StudentContainer.InitializeList();
+        StudentContainer.Initialize();
         ConsoleInput();
     }
 
@@ -14,38 +13,43 @@ class Program
     {
         Console.WriteLine("Operation:");
         string operationInput = Console.ReadLine();
-        while (Validiation.CheckOperation(operationInput) == "false")
+        if (operationInput.Equals(Operations.enlist, StringComparison.CurrentCultureIgnoreCase))
         {
-            Console.WriteLine("Operation non-existing, please use appropriate operation.\nOperation:");
-            operationInput = Console.ReadLine();
+            Enlist();
         }
-        if (Validiation.CheckOperation(operationInput) == "display")
+        else if (operationInput.Equals(Operations.display, StringComparison.CurrentCultureIgnoreCase))
         {
             Display();
         }
-        if (Validiation.CheckOperation(operationInput) == "enlist")
+        else
         {
-            Enlist();
+            Console.WriteLine("Operation non-existing, please use appropriate operation.");
+            ConsoleInput();
         }
     }
 
     static void Display()
     {
-        StudentContainer.StudentRead();
+        Console.WriteLine("Students in a system:");
+        foreach (Student s in StudentContainer.studentList)
+        {
+            Console.WriteLine("{0}. {1}, {2} - {3}", s.id, s.lastName, s.firstName, s.studentGpa);
+        }
+        Console.ReadKey(true);
     }
 
     static void Enlist()
     {
         Console.WriteLine("Student\nFirst name:");
         string firstNameInput = Console.ReadLine();
-        while (Validiation.CheckIfNull(firstNameInput) == true)
+        while (string.IsNullOrWhiteSpace(firstNameInput))
         {
             Console.WriteLine("You need to insert value.\nFirst name:");
             firstNameInput = Console.ReadLine();
         }
         Console.WriteLine("Last name:");
         string lastNameInput = Console.ReadLine();
-        while (Validiation.CheckIfNull(lastNameInput) == true)
+        while (string.IsNullOrWhiteSpace(lastNameInput))
         {
             Console.WriteLine("You need to insert value.\nFirst name:");
             lastNameInput = Console.ReadLine();
@@ -53,12 +57,12 @@ class Program
         Console.WriteLine("GPA:");
         string gpaInput = Console.ReadLine();
         float gpaFloat;
-        while (!float.TryParse(gpaInput, out gpaFloat) || Validiation.CheckIfNull(gpaInput) == true)
+        while (!float.TryParse(gpaInput, out gpaFloat) || string.IsNullOrWhiteSpace(gpaInput))
         {
             Console.WriteLine("Invalid value\nGPA:");
             gpaInput = Console.ReadLine();
         }
-        StudentContainer.StudentData(firstNameInput, lastNameInput,gpaFloat);
+        StudentContainer.AddStudentData(firstNameInput, lastNameInput,gpaFloat);
          ConsoleInput();
     }
 }

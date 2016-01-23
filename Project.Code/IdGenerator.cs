@@ -1,21 +1,21 @@
-﻿namespace Project.Code.IdGenerator
+﻿namespace Project.Code
 {
-    public sealed class CreateStudentIdGenerator
+    public sealed class IdGenerator
     {
-        public long currentId = 0;
-        private static CreateStudentIdGenerator instance = null;
-        public static CreateStudentIdGenerator Instance
+        private long currentId = 0;
+        private static IdGenerator instance = null;
+        public static IdGenerator Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new CreateStudentIdGenerator();
+                    instance = new IdGenerator();
                 }
                 return instance;
             }
         }
-        public long getNextID()
+        public long GetNextID()
         {
             currentId++;
             return currentId;

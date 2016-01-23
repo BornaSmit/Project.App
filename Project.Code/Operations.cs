@@ -1,8 +1,8 @@
-﻿namespace Project.Code.Operations
+﻿namespace Project.Code
 {
     public static class Operations
     {
-        public static string display = "DISPLAY";
-        public static string enlist = "ENLIST";
+        public const string display = "DISPLAY";
+        public const string enlist = "ENLIST";
     }
 }
