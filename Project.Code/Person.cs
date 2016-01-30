@@ -1,9 +1,9 @@
 ﻿namespace Project.Code
 {
-    public abstract class Person
+    public class Person
     {
-        public long id;
-        public string firstName;
-        public string lastName;
+        public long id { set; get; }
+        public string firstName { set; get; }
+        public string lastName { set; get; }
     }
 }

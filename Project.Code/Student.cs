@@ -2,6 +2,6 @@
 {
     public class Student : Person
     {
-        public float studentGpa;
+        public float gpa { set; get; }
     }
 }

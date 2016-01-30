@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Project.Code
 {
      public class StudentContainer
     {
-        public static List<Student> studentList;
+        private static List<Student> studentList;
         public static void Initialize()
         {
             studentList = new List<Student>();
@@ -14,9 +15,16 @@ namespace Project.Code
             Student s = new Student();
             s.firstName = firstName;
             s.lastName = lastName;
-            s.studentGpa = gpa;
+            s.gpa = gpa;
             s.id = IdGenerator.Instance.GetNextID();
             studentList.Add(s);
+        }
+        public static void GetStudentData()
+        {
+            foreach (Student s in studentList)
+            {
+                Console.WriteLine("{0}. {1}, {2} - {3}", s.id, s.lastName, s.firstName, s.gpa);
+            }
         }
     }
 }
