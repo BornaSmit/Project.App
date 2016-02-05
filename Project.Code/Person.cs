@@ -2,8 +2,8 @@
 {
     public class Person
     {
-        public long id { set; get; }
-        public string firstName { set; get; }
-        public string lastName { set; get; }
+        public long Id { set; get; }
+        public string FirstName { set; get; }
+        public string LastName { set; get; }
     }
 }

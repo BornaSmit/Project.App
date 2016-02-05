@@ -31,7 +31,10 @@ class Program
     static void Display()
     {
         Console.WriteLine("Students in a system:");
-        StudentContainer.GetStudentData();
+        foreach (Student s in StudentContainer.ReadStudentData())
+        {
+            Console.WriteLine("{0}. {1}, {2} - {3}", s.Id, s.LastName, s.FirstName, s.Gpa);
+        }
         Console.ReadKey(true);
     }
 
